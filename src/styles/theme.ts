@@ -23,8 +23,8 @@ let lightTheme = createTheme({
       paper: '#FFFFFF',
     },
     text: {
-      primary: '#475059',
-      secondary: '#7A8999',
+      primary: '#0c2240',
+      secondary: '#182D3D',
     },
     info: {
       main: '#182D3D',

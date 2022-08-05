@@ -8,6 +8,7 @@ import founders from "../assets/images/founders.jpeg";
 import Image from "next/image";
 import IndicatorCard from '../components/IndicatorCard'
 import { OpportunitiesTable } from '../components/OpportunitiesTable'
+import Frame from '../components/Frame'
 
 
 const Home: NextPage = () => {
@@ -27,26 +28,26 @@ const Home: NextPage = () => {
           <Hero />
           <Grid container sx={{ backgroundColor: 'primary.dark' }}>
             <Grid item xs={12} md={4} sx={{ padding: '1rem' }}>
-              <Typography variant="h4" color="primary.contrastText">
+              <Typography variant="h4" color="primary.contrastText" textAlign="center">
                 +150
               </Typography>
-              <Typography variant="body1" color="primary.contrastText">
+              <Typography variant="body1" color="primary.contrastText" textAlign="center">
                 imersões e mentorias
               </Typography>
             </Grid>
             <Grid item xs={12} md={4} sx={{ padding: '1rem' }}>
-              <Typography variant="h4" color="primary.contrastText">
+              <Typography variant="h4" color="primary.contrastText" textAlign="center">
                 +20.000
               </Typography>
-              <Typography variant="body1" color="primary.contrastText">
+              <Typography variant="body1" color="primary.contrastText" textAlign="center">
                 alunos formados
               </Typography>
             </Grid>
             <Grid item xs={12} md={4} sx={{ padding: '1rem' }}>
-              <Typography variant="h4" color="primary.contrastText">
+              <Typography variant="h4" color="primary.contrastText" textAlign="center">
                 +150.000
               </Typography>
-              <Typography variant="body1" color="primary.contrastText">
+              <Typography variant="body1" color="primary.contrastText" textAlign="center">
                 empregos gerados
               </Typography>
             </Grid>
@@ -66,13 +67,9 @@ const Home: NextPage = () => {
                 margin: '1rem 0',
               }}
             />
-            <Grid item xs={12} md={8} sx={{ padding: '4rem' }}>
-              <Image
-                src={founders}
-                alt="founders"
-                style={{
-                  width: "100%",
-                }}
+            <Grid item xs={12} md={8} sx={{ padding: '4rem', height: '600px' }}>
+              <Frame
+                src='https://www.youtube.com/embed/MP_uG-0fqYQ'
               />
             </Grid>
             <Grid item xs={12} md={4}
@@ -138,7 +135,7 @@ const Home: NextPage = () => {
           </Grid>
           <Grid container sx={{ backgroundColor: 'primary.dark' }}>
             <Grid item xs={12} md={3} sx={{ padding: '1rem' }}>
-              <Typography variant="h4" color="primary.contrastText">
+              <Typography variant="h4" color="primary.contrastText" textAlign="center">
                 Faça parte dessa evolução com a gente!
               </Typography>
             </Grid>
