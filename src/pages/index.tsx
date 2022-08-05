@@ -12,10 +12,8 @@ import Frame from '../components/Frame'
 
 
 const Home: NextPage = () => {
-  const router = useRouter()
   return (
     <LayoutProvider>
-
       <Container maxWidth="xl">
         <Box
           sx={{
@@ -149,14 +147,14 @@ const Home: NextPage = () => {
                     {
                       title: 'Coordenadora de Social Media',
                       description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
-                      link: '/',
+                      link: '/questions',
                       mode: 'Presencial',
                       place: 'São Paulo - SP',
                     },
                     {
                       title: 'Analista CRM Sr.',
                       description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
-                      link: '/',
+                      link: '/questions',
                       mode: 'Presencial',
                       place: 'São Paulo - SP',
                     }
@@ -182,14 +180,14 @@ const Home: NextPage = () => {
                     {
                       title: 'Analytics',
                       description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
-                      link: '/',
+                      link: '/questions',
                       mode: 'Presencial',
                       place: 'São Paulo - SP',
                     },
                     {
                       title: 'Desenvolvedor Full Stack',
                       description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
-                      link: '/',
+                      link: '/questions',
                       mode: 'Presencial',
                       place: 'São Paulo - SP',
                     }
@@ -215,14 +213,14 @@ const Home: NextPage = () => {
                     {
                       title: 'Analista Performance',
                       description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
-                      link: '/',
+                      link: '/questions',
                       mode: 'Presencial',
                       place: 'São Paulo - SP',
                     },
                     {
                       title: 'Analista Marketing',
                       description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
-                      link: '/',
+                      link: '/questions',
                       mode: 'Presencial',
                       place: 'São Paulo - SP',
                     }
