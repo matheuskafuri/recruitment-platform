@@ -15,19 +15,17 @@ const Home: NextPage = () => {
   return (
     <LayoutProvider>
 
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Box
           sx={{
-            my: 4,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-
           }}
         >
           <Hero />
-          <Grid container spacing={4} sx={{ backgroundColor: 'primary.dark' }}>
+          <Grid container sx={{ backgroundColor: 'primary.dark' }}>
             <Grid item xs={12} md={4} sx={{ padding: '1rem' }}>
               <Typography variant="h4" color="primary.contrastText">
                 +150
@@ -68,7 +66,7 @@ const Home: NextPage = () => {
                 margin: '1rem 0',
               }}
             />
-            <Grid item xs={12} md={8} sx={{ padding: '1rem' }}>
+            <Grid item xs={12} md={8} sx={{ padding: '4rem' }}>
               <Image
                 src={founders}
                 alt="founders"
@@ -138,7 +136,7 @@ const Home: NextPage = () => {
               <IndicatorCard title="06" info='Temos tesão pela jornada.' />
             </Grid>
           </Grid>
-          <Grid container spacing={4} sx={{ backgroundColor: 'primary.dark' }}>
+          <Grid container sx={{ backgroundColor: 'primary.dark' }}>
             <Grid item xs={12} md={3} sx={{ padding: '1rem' }}>
               <Typography variant="h4" color="primary.contrastText">
                 Faça parte dessa evolução com a gente!
@@ -148,22 +146,26 @@ const Home: NextPage = () => {
               <Typography variant="h6" color="primary.contrastText">
                 Comunicação e Marca
               </Typography>
-              <Stack spacing={4}>
-                <OpportunitiesTable
-                  opportunity='Coordenadora de Social Media'
-                  description='Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto'
-                  link='/'
-                  mode='Presencial'
-                  place='São Paulo - SP'
-                />
-                <OpportunitiesTable
-                  opportunity='Analista CRM Sr.'
-                  description='Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto'
-                  link='/'
-                  mode='Presencial'
-                  place='São Paulo - SP'
-                />
-              </Stack>
+              <OpportunitiesTable
+                opportunities={
+                  [
+                    {
+                      title: 'Coordenadora de Social Media',
+                      description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
+                      link: '/',
+                      mode: 'Presencial',
+                      place: 'São Paulo - SP',
+                    },
+                    {
+                      title: 'Analista CRM Sr.',
+                      description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
+                      link: '/',
+                      mode: 'Presencial',
+                      place: 'São Paulo - SP',
+                    }
+                  ]
+                }
+              />
             </Grid>
             <Divider
               orientation="horizontal"
@@ -177,22 +179,26 @@ const Home: NextPage = () => {
               <Typography variant="h6" color="primary.contrastText">
                 Tecnologia
               </Typography>
-              <Stack spacing={4}>
-                <OpportunitiesTable
-                  opportunity='Data Analytics'
-                  description='Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto'
-                  link='/'
-                  mode='Presencial'
-                  place='São Paulo - SP'
-                />
-                <OpportunitiesTable
-                  opportunity='Desenvolvedor Full Stack'
-                  description='Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto'
-                  link='/'
-                  mode='Presencial'
-                  place='São Paulo - SP'
-                />
-              </Stack>
+              <OpportunitiesTable
+                opportunities={
+                  [
+                    {
+                      title: 'Analytics',
+                      description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
+                      link: '/',
+                      mode: 'Presencial',
+                      place: 'São Paulo - SP',
+                    },
+                    {
+                      title: 'Desenvolvedor Full Stack',
+                      description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
+                      link: '/',
+                      mode: 'Presencial',
+                      place: 'São Paulo - SP',
+                    }
+                  ]
+                }
+              />
             </Grid>
             <Divider
               orientation="horizontal"
@@ -206,22 +212,26 @@ const Home: NextPage = () => {
               <Typography variant="h6" color="primary.contrastText">
                 Marketing
               </Typography>
-              <Stack spacing={4}>
-                <OpportunitiesTable
-                  opportunity='Analista Performance'
-                  description='Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto'
-                  link='/'
-                  mode='Presencial'
-                  place='São Paulo - SP'
-                />
-                <OpportunitiesTable
-                  opportunity='Analista Marketing'
-                  description='Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto'
-                  link='/'
-                  mode='Presencial'
-                  place='São Paulo - SP'
-                />
-              </Stack>
+              <OpportunitiesTable
+                opportunities={
+                  [
+                    {
+                      title: 'Analista Performance',
+                      description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
+                      link: '/',
+                      mode: 'Presencial',
+                      place: 'São Paulo - SP',
+                    },
+                    {
+                      title: 'Analista Marketing',
+                      description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
+                      link: '/',
+                      mode: 'Presencial',
+                      place: 'São Paulo - SP',
+                    }
+                  ]
+                }
+              />
             </Grid>
             <Grid item xs={12} md={12} sx={{ padding: '1rem' }}>
               <Button variant="contained" color="primary" size="large" href="/">
@@ -229,9 +239,13 @@ const Home: NextPage = () => {
               </Button>
             </Grid>
           </Grid>
-          <Link color="secondary" variant="h6" href="https://g4educacao.com/">
-            Go to G4 Educação
-          </Link>
+          <Box
+            sx={{ padding: '1rem', marginTop: '1rem' }}
+          >
+            <Link color="secondary" variant="body1" href="https://g4educacao.com/">
+              Go to G4 Educação
+            </Link>
+          </Box>
           <Copyright />
         </Box>
       </Container>
