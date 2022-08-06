@@ -11,15 +11,15 @@ let lightTheme = createTheme({
       contrastText: '#FFFFFF',
     },
     secondary: {
-      light: '#0072f0',
-      main: '#0a7abf',
-      dark: '#0c2240',
+      light: '#FF958C',
+      main: '#FA7268',
+      dark: '#e05959',
     },
     error: {
       main: red.A400,
     },
     background: {
-      default: '#EBF1F7',
+      default: '#FFFFFF',
       paper: '#FFFFFF',
     },
     text: {

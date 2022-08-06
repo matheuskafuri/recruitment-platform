@@ -1,10 +1,8 @@
 import { TableContainer, Paper, Table, TableBody, TableRow, TableCell, Typography, Button, linkClasses, Box, Tooltip } from "@mui/material";
 import InfoIcon from '@mui/icons-material/Info';
 interface Opportunity {
+  id: string;
   title: string
-  mode: string
-  place: string
-  link: string
   description: string
 }
 
@@ -23,7 +21,7 @@ const OpportunitiesTable = ({ opportunities }: OpportunitiesTableProps) => {
       <Table aria-label="simple table">
         <TableBody>
           {opportunities.map((opportunity: Opportunity) => (
-            <TableRow key={opportunity.title}>
+            <TableRow key={opportunity.id}>
               <TableCell component="th" scope="row">
                 <Tooltip title={opportunity.description}>
                   <Typography variant="body1" color="primary.contrastText" >
@@ -34,16 +32,16 @@ const OpportunitiesTable = ({ opportunities }: OpportunitiesTableProps) => {
               </TableCell>
               <TableCell align="right">
                 <Typography variant="body1" color="primary.contrastText" >
-                  {opportunity.mode}
+                  Presencial
                 </Typography>
               </TableCell>
               <TableCell align="right">
                 <Typography variant="body1" color="primary.contrastText" >
-                  {opportunity.place}
+                  São Paulo - SP
                 </Typography>
               </TableCell>
               <TableCell align="right">
-                <Button variant="outlined" color="primary" size="large" href={opportunity.link}>
+                <Button variant="outlined" color="primary" size="large" href={`/questions/${opportunity.id}`}>
                   Candidatar
                 </Button>
               </TableCell>

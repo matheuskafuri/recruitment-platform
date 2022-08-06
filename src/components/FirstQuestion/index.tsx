@@ -9,7 +9,7 @@ export interface QuestionProps {
 }
 
 const FirstQuestion = ({ changeQuestion }: QuestionProps) => {
-  const [answer, setAnswer] = useState("");
+  const [answer, setAnswer] = useState(0);
   const [comment, setComment] = useState("");
   return (
     <Grid item xs={12} md={8} sx={{ borderRadius: '2rem', padding: '2rem' }}>
@@ -26,20 +26,20 @@ const FirstQuestion = ({ changeQuestion }: QuestionProps) => {
         options={
           [
             {
-              label: 'Lido assim e assim e tal',
-              value: '10'
+              value: 'Lido assim e assim e tal',
+              weight: 10
             },
             {
-              label: 'Prefiro tal e tal coisa',
-              value: '8'
+              value: 'Prefiro tal e tal coisa',
+              weight: 8
             },
             {
-              label: 'Fico puto e ja era',
-              value: '3'
+              value: 'Fico puto e ja era',
+              weight: 3
             },
             {
-              label: 'É melhor resolver de tal forma',
-              value: '20'
+              value: 'É melhor resolver de tal forma',
+              weight: 20
             }
           ]
         }

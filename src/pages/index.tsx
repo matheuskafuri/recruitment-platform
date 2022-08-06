@@ -9,9 +9,25 @@ import Image from "next/image";
 import IndicatorCard from '../components/IndicatorCard'
 import { OpportunitiesTable } from '../components/OpportunitiesTable'
 import Frame from '../components/Frame'
+import { useCallback, useEffect, useState } from 'react'
+import fireBaseApi from '../services/fireBaseApi'
 
 
 const Home: NextPage = () => {
+  const [opportunities, setOpportunities] = useState([]);
+  const loadOpportunities = useCallback(async () => {
+    try {
+      const accounts = await fireBaseApi.post("/load-opportunities");
+      setOpportunities(accounts.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }, [setOpportunities]);
+
+  useEffect(() => {
+    loadOpportunities();
+  }, [loadOpportunities]);
+
   return (
     <LayoutProvider>
       <Container maxWidth="xl">
@@ -139,93 +155,10 @@ const Home: NextPage = () => {
             </Grid>
             <Grid item xs={12} md={12} sx={{ padding: '1rem' }}>
               <Typography variant="h6" color="primary.contrastText">
-                Comunicação e Marca
+                Oportunidades em Alta
               </Typography>
               <OpportunitiesTable
-                opportunities={
-                  [
-                    {
-                      title: 'Coordenadora de Social Media',
-                      description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
-                      link: '/questions',
-                      mode: 'Presencial',
-                      place: 'São Paulo - SP',
-                    },
-                    {
-                      title: 'Analista CRM Sr.',
-                      description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
-                      link: '/questions',
-                      mode: 'Presencial',
-                      place: 'São Paulo - SP',
-                    }
-                  ]
-                }
-              />
-            </Grid>
-            <Divider
-              orientation="horizontal"
-              color="#475059"
-              sx={{
-                width: '100%',
-                margin: '1rem 0',
-              }}
-            />
-            <Grid item xs={12} md={12} sx={{ padding: '1rem' }}>
-              <Typography variant="h6" color="primary.contrastText">
-                Tecnologia
-              </Typography>
-              <OpportunitiesTable
-                opportunities={
-                  [
-                    {
-                      title: 'Analytics',
-                      description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
-                      link: '/questions',
-                      mode: 'Presencial',
-                      place: 'São Paulo - SP',
-                    },
-                    {
-                      title: 'Desenvolvedor Full Stack',
-                      description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
-                      link: '/questions',
-                      mode: 'Presencial',
-                      place: 'São Paulo - SP',
-                    }
-                  ]
-                }
-              />
-            </Grid>
-            <Divider
-              orientation="horizontal"
-              color="#475059"
-              sx={{
-                width: '100%',
-                margin: '1rem 0',
-              }}
-            />
-            <Grid item xs={12} md={12} sx={{ padding: '1rem' }}>
-              <Typography variant="h6" color="primary.contrastText">
-                Marketing
-              </Typography>
-              <OpportunitiesTable
-                opportunities={
-                  [
-                    {
-                      title: 'Analista Performance',
-                      description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
-                      link: '/questions',
-                      mode: 'Presencial',
-                      place: 'São Paulo - SP',
-                    },
-                    {
-                      title: 'Analista Marketing',
-                      description: 'Ajudar a divulgar o nosso projeto e ajudar a divulgar o nosso projeto',
-                      link: '/questions',
-                      mode: 'Presencial',
-                      place: 'São Paulo - SP',
-                    }
-                  ]
-                }
+                opportunities={opportunities}
               />
             </Grid>
             <Grid item xs={12} md={12} sx={{ padding: '1rem' }}>

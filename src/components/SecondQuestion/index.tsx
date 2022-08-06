@@ -6,7 +6,7 @@ import { useState } from "react";
 import { QuestionProps } from "../FirstQuestion";
 
 const SecondQuestion = ({ changeQuestion }: QuestionProps) => {
-  const [answer, setAnswer] = useState("");
+  const [answer, setAnswer] = useState(0);
   const [comment, setComment] = useState("");
   return (
     <Grid item xs={12} md={8} sx={{ borderRadius: '2rem', padding: '2rem' }}>
@@ -23,28 +23,28 @@ const SecondQuestion = ({ changeQuestion }: QuestionProps) => {
         options={
           [
             {
-              label: 'Não temos braço curto. Fazemos o que tem que ser feito.',
-              value: '10'
+              value: 'Não temos braço curto. Fazemos o que tem que ser feito.',
+              weight: 10
             },
             {
-              label: 'Jogamos o jogo abertamente.',
-              value: '8'
+              value: 'Jogamos o jogo abertamente.',
+              weight: 8
             },
             {
-              label: 'Focamos no resultado.',
-              value: '3'
+              value: 'Focamos no resultado.',
+              weight: 3
             },
             {
-              label: 'Temos os mais altos padrões.',
-              value: '20'
+              value: 'Temos os mais altos padrões.',
+              weight: 20
             },
             {
-              label: 'Somos uma tropa de elite.',
-              value: '40'
+              value: 'Somos uma tropa de elite.',
+              weight: 40
             },
             {
-              label: 'Tesão pela jornada.',
-              value: '20'
+              value: 'Tesão pela jornada.',
+              weight: 20
             },
           ]
         }

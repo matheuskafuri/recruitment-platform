@@ -8,28 +8,30 @@ import { Grid, Box, useMediaQuery } from '@mui/material';
 
 
 interface Options {
-  label: string;
+  weight: number;
   value: string;
 }
 
 interface CustomSelectProps {
   options: Options[]
-  setAnswer: (answer: string) => void
+  setAnswer: (answer: number) => void
 }
 const CustomSelect = ({ options, setAnswer }: CustomSelectProps) => {
   const isMobile = useMediaQuery('(max-width:600px)');
-  const [value, setValue] = useState('');
+  const [weight, setWeight] = useState(0);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue((event.target as HTMLInputElement).value);
-    setAnswer((event.target as HTMLInputElement).value);
+    setWeight(
+      parseInt(event.target.value)
+    );
+    setAnswer(parseInt(event.target.value));
   };
   return (
     <FormControl>
       <RadioGroup
         aria-labelledby="demo-controlled-radio-buttons-group"
         name="controlled-radio-buttons-group"
-        value={value}
+        value={weight}
         onChange={handleChange}
       >
         <Grid
@@ -50,9 +52,9 @@ const CustomSelect = ({ options, setAnswer }: CustomSelectProps) => {
                 padding: isMobile ? '0' : '1.5rem',
                 height: '6rem',
               }}
-              value={option.value}
+              value={option.weight}
               control={<Radio />}
-              label={option.label}
+              label={option.value}
             />
           ))}
         </Grid>

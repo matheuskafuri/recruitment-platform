@@ -3,9 +3,10 @@ import { CardContent, Typography } from "@mui/material"
 interface IndicatorCardProps {
   title: string
   info: string
+  height?: string
 }
 
-const IndicatorCard = ({ title, info }: IndicatorCardProps) => {
+const IndicatorCard = ({ title, info, height }: IndicatorCardProps) => {
   return (
     <CardContent
       sx={{
@@ -16,7 +17,7 @@ const IndicatorCard = ({ title, info }: IndicatorCardProps) => {
         backgroundColor: 'background.paper',
         borderRadius: 2,
         boxShadow: '0 0 0 4px rgba(0,0,0,0.1)',
-        height: '14rem',
+        height: height ? height : '14rem',
       }}
     >
       <Typography variant="h4" component="h2" gutterBottom>
