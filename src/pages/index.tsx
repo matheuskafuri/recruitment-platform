@@ -1,11 +1,8 @@
 import type { NextPage } from 'next'
 import { Box, Button, Container, Divider, Grid, Link, Stack, Typography } from '@mui/material'
 import { Copyright } from '../components/Copyright/Copyright'
-import { useRouter } from 'next/router'
 import LayoutProvider from '../components/Layout'
 import { Hero } from '../components/LandingPageHero'
-import founders from "../assets/images/founders.jpeg";
-import Image from "next/image";
 import IndicatorCard from '../components/IndicatorCard'
 import { OpportunitiesTable } from '../components/OpportunitiesTable'
 import Frame from '../components/Frame'
@@ -65,7 +62,7 @@ const Home: NextPage = () => {
                 empregos gerados
               </Typography>
             </Grid>
-            <Grid item xs={12} md={12} sx={{ padding: '1rem' }}>
+            <Grid item xs={12} md={12} sx={{ padding: '1rem', marginTop: '2rem' }} >
               <Typography variant="body1" color="primary.contrastText">
                 Venha para o Próximo Nível!
               </Typography>
@@ -73,14 +70,6 @@ const Home: NextPage = () => {
                 Conheça o que os Maiores do Mundo estão fazendo.
               </Typography>
             </Grid>
-            <Divider
-              orientation="horizontal"
-              color="#475059"
-              sx={{
-                width: '100%',
-                margin: '1rem 0',
-              }}
-            />
             <Grid item xs={12} md={8} sx={{ padding: '4rem', height: '600px' }}>
               <Frame
                 src='https://www.youtube.com/embed/MP_uG-0fqYQ'

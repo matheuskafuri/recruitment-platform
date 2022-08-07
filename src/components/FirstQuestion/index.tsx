@@ -26,25 +26,28 @@ const FirstQuestion = ({ changeQuestion, setScore }: QuestionProps) => {
         Seja sincero (a) e aproveite!
       </Typography>
       <Typography variant="body1" marginBottom={4}>
-        Como você lida com tal situação?
+        Como você lidará com essa situação?
+      </Typography>
+      <Typography variant="body2" marginBottom={4}>
+        No dia a dia é muito comum as pessoas te pedirem trabalhos que aparentemente não façam muito sentido, como você lidará com isso?
       </Typography>
       <CustomSelect
         options={
           [
             {
-              value: 'Lido assim e assim e tal',
-              weight: 6
-            },
-            {
-              value: 'Prefiro tal e tal coisa',
+              value: 'Vou pesquisando no google e tentando fazer o que ela pediu.',
               weight: 3
             },
             {
-              value: 'Fico puto e ja era',
+              value: '​Eu vou levar com a pessoa e tentar entender qual é o problema para chegarmos na melhor solução',
+              weight: 6
+            },
+            {
+              value: 'Eu não faria quando não faz sentido.',
               weight: 0
             },
             {
-              value: 'É melhor resolver de tal forma',
+              value: '​Eu tento fazer da melhor forma possível, adicionando sentido, mesmo que a pessoa não pediu.',
               weight: 10
             }
           ]

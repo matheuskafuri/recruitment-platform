@@ -51,7 +51,7 @@ const Hero = () => {
         <Grid item xs={12} md={8} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
           <Box
             sx={{
-              backgroundColor: "secondary.main",
+              backgroundColor: "primary.main",
               borderRadius: "100px",
               width: '200px',
               height: '200px',

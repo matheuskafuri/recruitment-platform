@@ -65,7 +65,6 @@ const CreateQuestionDialog = ({
   const handleCreateQuestion = () => {
     createQuestion();
   }
-  console.log(opportunity)
 
   const handleClose = () => {
     setQuestion('');

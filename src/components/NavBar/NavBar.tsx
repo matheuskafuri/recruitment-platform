@@ -6,12 +6,12 @@ import G4NavbarLight from '../../assets/images/navbar-light.svg'
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-const pages = ['Recrutador'];
+const pages = ['Área do Recrutador'];
 
 const UnderlineActivePageIndicator = ({ page }) => {
   const translatePage = (page) => {
     switch (page) {
-      case 'Recrutador':
+      case 'Área do Recrutador':
         return 'recruiter';
       case 'Sobre':
         return 'sobre';
@@ -51,7 +51,7 @@ const NavBar = () => {
   const handleNavigation = (title: string) => {
     const route = title.toLowerCase();
     switch (route) {
-      case 'recrutador':
+      case 'área do recrutador':
         router.push('/recruiter');
         break;
       default:
@@ -113,7 +113,7 @@ const NavBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => handleNavigation(page)}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}

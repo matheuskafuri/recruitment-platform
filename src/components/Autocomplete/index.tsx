@@ -1,6 +1,5 @@
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import { useState } from 'react';
 
 const AutocompleteInput = ({ options, setValue }) => {
   const defaultProps = {

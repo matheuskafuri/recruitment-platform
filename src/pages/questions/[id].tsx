@@ -112,7 +112,7 @@ const Questions = () => {
               Selecionamos algumas perguntas rápida pra te conhecer melhor.
             </Typography>
             <Typography variant="body1" color="primary.contrastText" marginBottom={3}>
-              São 3 perguntas e com 10 minutos no máximo você responde.
+              São 4 perguntas e com 10 minutos no máximo você responde.
             </Typography>
             <Typography variant="body1" color="primary.contrastText" marginBottom={3}>
               E lembre-se de aproveitar cada etapa do processo, o importante é ter tensão pela jornada.

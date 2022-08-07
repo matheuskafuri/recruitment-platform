@@ -28,27 +28,27 @@ const SecondQuestion = ({ changeQuestion, setScore, score }: QuestionProps) => {
           [
             {
               value: 'Não temos braço curto. Fazemos o que tem que ser feito.',
-              weight: 7
+              weight: 10
             },
             {
-              value: 'Jogamos o jogo abertamente.',
-              weight: 8
-            },
-            {
-              value: 'Focamos no resultado.',
-              weight: 9
+              value: 'A amizade é o mais importante no trabalho.',
+              weight: 0
             },
             {
               value: 'Temos os mais altos padrões.',
-              weight: 6
+              weight: 10
+            },
+            {
+              value: 'Focamos na qualidade de vida.',
+              weight: 0
+            },
+            {
+              value: 'Sempre buscamos o resultado final, não importa o caminho.',
+              weight: 0
             },
             {
               value: 'Somos uma tropa de elite.',
               weight: 10
-            },
-            {
-              value: 'Tesão pela jornada.',
-              weight: 5
             },
           ]
         }
