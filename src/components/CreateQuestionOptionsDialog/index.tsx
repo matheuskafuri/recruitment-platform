@@ -7,6 +7,7 @@ import {
   Grid,
   Alert,
 } from '@mui/material'
+import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 import fireBaseApi from '../../services/fireBaseApi';
@@ -30,6 +31,7 @@ const CreateQuestionOptionsDialog = ({
   questionId,
   handleClose,
 }: CreateQuestionOptionsDialogProps) => {
+  const router = useRouter()
 
   let options: Option[] = [];
   const [value1, setValue1] = useState('');
@@ -49,6 +51,7 @@ const CreateQuestionOptionsDialog = ({
         })
         await Promise.all(questionOptions);
         handleClose();
+        router.push('/recruiter')
       } catch (err) {
         console.log(err);
       }

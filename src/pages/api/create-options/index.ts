@@ -20,7 +20,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       weight,
       questionId,
     });
-    toast.success('Questão criada com sucesso!');
+
     res.status(200).json(optionRef.id);
   } catch (e: any) {
     res.status(500).json({ error: e.message });
