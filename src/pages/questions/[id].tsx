@@ -7,7 +7,6 @@ import CreateCandidateDialog, { Candidate } from "../../components/CreateCandida
 import FirstQuestion from "../../components/FirstQuestion";
 import FourthQuestion from "../../components/FourthQuestion";
 import SecondQuestion from "../../components/SecondQuestion";
-import ThirdQuestion from "../../components/ThirdQuestion";
 import fireBaseApi from "../../services/fireBaseApi";
 
 export interface OpportunityQuestionProps {
@@ -151,8 +150,7 @@ const Questions = () => {
           </Grid>
           {question === 0 && <FirstQuestion changeQuestion={setQuestion} setScore={setScore} score={score} />}
           {question === 1 && <SecondQuestion changeQuestion={setQuestion} setScore={setScore} score={score} />}
-          {question === 2 && <ThirdQuestion changeQuestion={setQuestion} setScore={setScore} score={score} />}
-          {question === 3 && <FourthQuestion changeQuestion={setQuestion} opportunityQuestion={opportunityQuestion} opportunityQuestionOptions={opportunityQuestionOptions} setScore={setScore} score={score} />}
+          {question === 2 && <FourthQuestion changeQuestion={setQuestion} opportunityQuestion={opportunityQuestion} opportunityQuestionOptions={opportunityQuestionOptions} setScore={setScore} score={score} />}
         </Grid>
       </Box>
       <CreateCandidateDialog

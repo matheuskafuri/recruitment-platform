@@ -15,8 +15,9 @@ interface Options {
 interface CustomSelectProps {
   options: Options[]
   setAnswer: (answer: number) => void
+  height?: string
 }
-const CustomSelect = ({ options, setAnswer }: CustomSelectProps) => {
+const CustomSelect = ({ options, setAnswer, height }: CustomSelectProps) => {
   const isMobile = useMediaQuery('(max-width:600px)');
   const [weight, setWeight] = useState(0);
 
@@ -50,7 +51,7 @@ const CustomSelect = ({ options, setAnswer }: CustomSelectProps) => {
                 borderRadius: 2,
                 boxShadow: '0 0 0 4px rgba(0,0,0,0.1)',
                 padding: isMobile ? '0' : '1.5rem',
-                height: '6rem',
+                height: height ? height : '6rem',
               }}
               value={option.weight}
               control={<Radio />}

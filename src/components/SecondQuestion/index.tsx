@@ -36,7 +36,7 @@ const SecondQuestion = ({ changeQuestion, setScore, score }: QuestionProps) => {
             },
             {
               value: 'Temos os mais altos padrões.',
-              weight: 10
+              weight: 9
             },
             {
               value: 'Focamos na qualidade de vida.',
@@ -48,7 +48,7 @@ const SecondQuestion = ({ changeQuestion, setScore, score }: QuestionProps) => {
             },
             {
               value: 'Somos uma tropa de elite.',
-              weight: 10
+              weight: 8
             },
           ]
         }

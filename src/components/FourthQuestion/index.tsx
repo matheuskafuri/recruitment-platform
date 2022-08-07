@@ -36,6 +36,7 @@ const FourthQuestion = ({ changeQuestion, opportunityQuestion, opportunityQuesti
       <CustomSelect
         options={opportunityQuestionOptions}
         setAnswer={setAnswer}
+        height='10rem'
       />
       <Grid item xs={12} md={12} sx={{ borderRadius: '2rem', py: '2rem' }}>
         <TextInput
