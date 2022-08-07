@@ -40,11 +40,11 @@ const SecondQuestion = ({ changeQuestion, setScore, score }: QuestionProps) => {
             },
             {
               value: 'Focamos na qualidade de vida.',
-              weight: 0
+              weight: 1
             },
             {
               value: 'Sempre buscamos o resultado final, não importa o caminho.',
-              weight: 0
+              weight: 2
             },
             {
               value: 'Somos uma tropa de elite.',
