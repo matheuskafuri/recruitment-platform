@@ -5,8 +5,13 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useState } from "react";
 import { QuestionProps } from "../FirstQuestion";
 
-const ThirdQuestion = ({ changeQuestion }: QuestionProps) => {
-  const [answer, setAnswer] = useState("");
+const ThirdQuestion = ({ changeQuestion, setScore, score }: QuestionProps) => {
+  const [answer, setAnswer] = useState(0);
+  const [comment, setComment] = useState("");
+  const handleSubmit = () => {
+    setScore(answer);
+    changeQuestion(3);
+  }
 
   return (
     <Grid item xs={12} md={8} sx={{ borderRadius: '2rem', padding: '2rem' }}>
@@ -19,14 +24,44 @@ const ThirdQuestion = ({ changeQuestion }: QuestionProps) => {
       <Typography variant="body1" marginBottom={4}>
         Qual desses valores do G4 Educação você mais se identifica?
       </Typography>
+      <CustomSelect
+        options={
+          [
+            {
+              value: 'Não temos braço curto. Fazemos o que tem que ser feito.',
+              weight: 7
+            },
+            {
+              value: 'Jogamos o jogo abertamente.',
+              weight: 8
+            },
+            {
+              value: 'Focamos no resultado.',
+              weight: 9
+            },
+            {
+              value: 'Temos os mais altos padrões.',
+              weight: 6
+            },
+            {
+              value: 'Somos uma tropa de elite.',
+              weight: 10
+            },
+            {
+              value: 'Tesão pela jornada.',
+              weight: 5
+            },
+          ]
+        }
+        setAnswer={setAnswer}
+      />
       <Grid item xs={12} md={12} sx={{ borderRadius: '2rem', py: '2rem' }}>
         <TextInput
-          label="E pra finalizar, como você resolveria o seguinte problema?"
-          setAnswer={setAnswer}
-          question='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultricies, leo a sollicitudin porta, nulla odio efficitur metus, id bibendum nisi odio non enim. Donec porta nibh a maximus cursus. Curabitur at ipsum malesuada, consequat orci et, eleifend enim. Sed odio nunc, consectetur ac massa nec,'
+          label="Conta pra gente porque você escolheu esse valor (obrigatória):"
+          setComment={setComment}
         />
       </Grid>
-      <IconButton aria-label="next" onClick={() => changeQuestion(3)}
+      <IconButton aria-label="next" onClick={handleSubmit}
         sx={{
           display: 'flex',
           flexDirection: 'row',

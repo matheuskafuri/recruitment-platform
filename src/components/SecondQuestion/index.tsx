@@ -5,9 +5,13 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useState } from "react";
 import { QuestionProps } from "../FirstQuestion";
 
-const SecondQuestion = ({ changeQuestion }: QuestionProps) => {
+const SecondQuestion = ({ changeQuestion, setScore, score }: QuestionProps) => {
   const [answer, setAnswer] = useState(0);
   const [comment, setComment] = useState("");
+  const handleSubmit = () => {
+    setScore(score + answer);
+    changeQuestion(2);
+  }
   return (
     <Grid item xs={12} md={8} sx={{ borderRadius: '2rem', padding: '2rem' }}>
       <Typography variant="h5" fontWeight='bold' marginTop={8}>
@@ -24,7 +28,7 @@ const SecondQuestion = ({ changeQuestion }: QuestionProps) => {
           [
             {
               value: 'Não temos braço curto. Fazemos o que tem que ser feito.',
-              weight: 10
+              weight: 7
             },
             {
               value: 'Jogamos o jogo abertamente.',
@@ -32,19 +36,19 @@ const SecondQuestion = ({ changeQuestion }: QuestionProps) => {
             },
             {
               value: 'Focamos no resultado.',
-              weight: 3
+              weight: 9
             },
             {
               value: 'Temos os mais altos padrões.',
-              weight: 20
+              weight: 6
             },
             {
               value: 'Somos uma tropa de elite.',
-              weight: 40
+              weight: 10
             },
             {
               value: 'Tesão pela jornada.',
-              weight: 20
+              weight: 5
             },
           ]
         }
@@ -56,7 +60,7 @@ const SecondQuestion = ({ changeQuestion }: QuestionProps) => {
           setComment={setComment}
         />
       </Grid>
-      <IconButton aria-label="next" onClick={() => changeQuestion(2)}
+      <IconButton aria-label="next" onClick={handleSubmit}
         sx={{
           display: 'flex',
           flexDirection: 'row',

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import tallis from "../../assets/images/tallis.jpeg";
+import CreateCandidateDialog, { Candidate } from "../../components/CreateCandidateDialog";
 import FirstQuestion from "../../components/FirstQuestion";
 import FourthQuestion from "../../components/FourthQuestion";
 import SecondQuestion from "../../components/SecondQuestion";
@@ -26,7 +27,34 @@ const Questions = () => {
   const [question, setQuestion] = useState(0);
   const [opportunityQuestion, setOpportunityQuestion] = useState<OpportunityQuestionProps>(null);
   const [opportunityQuestionOptions, setOpportunityQuestionOptions] = useState<OpportunityQuestionOptionsProps[]>([]);
+  const [candidate, setCandidate] = useState(null);
+  const [score, setScore] = useState<number>(0)
+  const [openDialog, setOpenDialog] = useState(true);
+
   const router = useRouter()
+
+  const updateCandidate = useCallback(async () => {
+    try {
+      await fireBaseApi.post('/update-candidate', {
+        candidate,
+        score,
+      });
+      return
+    } catch (err) {
+      console.log(err);
+    }
+  }, [score]);
+
+  useEffect(() => {
+    updateCandidate();
+  }, [score])
+
+  const handleOpenDialog = () => {
+    setOpenDialog(true);
+  }
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  }
 
   const loadQuestion = useCallback(async (id: string) => {
     try {
@@ -121,12 +149,17 @@ const Questions = () => {
               </Box>
             </Box>
           </Grid>
-          {question === 0 && <FirstQuestion changeQuestion={setQuestion} />}
-          {question === 1 && <SecondQuestion changeQuestion={setQuestion} />}
-          {question === 2 && <ThirdQuestion changeQuestion={setQuestion} />}
-          {question === 3 && <FourthQuestion changeQuestion={setQuestion} opportunityQuestion={opportunityQuestion} opportunityQuestionOptions={opportunityQuestionOptions} />}
+          {question === 0 && <FirstQuestion changeQuestion={setQuestion} setScore={setScore} score={score} />}
+          {question === 1 && <SecondQuestion changeQuestion={setQuestion} setScore={setScore} score={score} />}
+          {question === 2 && <ThirdQuestion changeQuestion={setQuestion} setScore={setScore} score={score} />}
+          {question === 3 && <FourthQuestion changeQuestion={setQuestion} opportunityQuestion={opportunityQuestion} opportunityQuestionOptions={opportunityQuestionOptions} setScore={setScore} score={score} />}
         </Grid>
       </Box>
+      <CreateCandidateDialog
+        open={openDialog}
+        onClose={handleCloseDialog}
+        setCandidate={setCandidate}
+      />
     </Container >
   );
 }

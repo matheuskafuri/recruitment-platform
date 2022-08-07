@@ -6,11 +6,17 @@ import { useState } from "react";
 
 export interface QuestionProps {
   changeQuestion: (question: number) => void;
+  setScore: (score: number) => void;
+  score: number;
 }
 
-const FirstQuestion = ({ changeQuestion }: QuestionProps) => {
+const FirstQuestion = ({ changeQuestion, setScore }: QuestionProps) => {
   const [answer, setAnswer] = useState(0);
   const [comment, setComment] = useState("");
+  const handleSubmit = () => {
+    setScore(answer);
+    changeQuestion(1);
+  }
   return (
     <Grid item xs={12} md={8} sx={{ borderRadius: '2rem', padding: '2rem' }}>
       <Typography variant="h5" fontWeight='bold' marginTop={8}>
@@ -27,19 +33,19 @@ const FirstQuestion = ({ changeQuestion }: QuestionProps) => {
           [
             {
               value: 'Lido assim e assim e tal',
-              weight: 10
+              weight: 6
             },
             {
               value: 'Prefiro tal e tal coisa',
-              weight: 8
-            },
-            {
-              value: 'Fico puto e ja era',
               weight: 3
             },
             {
+              value: 'Fico puto e ja era',
+              weight: 0
+            },
+            {
               value: 'É melhor resolver de tal forma',
-              weight: 20
+              weight: 10
             }
           ]
         }
@@ -51,7 +57,7 @@ const FirstQuestion = ({ changeQuestion }: QuestionProps) => {
           setComment={setComment}
         />
       </Grid>
-      <IconButton aria-label="next" onClick={() => changeQuestion(1)}
+      <IconButton aria-label="next" onClick={handleSubmit}
         sx={{
           display: 'flex',
           flexDirection: 'row',

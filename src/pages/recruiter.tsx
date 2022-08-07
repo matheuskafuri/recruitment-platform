@@ -1,4 +1,4 @@
-import { Box, Button, Container, Divider, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
+import { Box, Button, Container, Divider, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Tooltip, Typography } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { AutocompleteInput } from "../components/Autocomplete";
 import fireBaseApi from "../services/fireBaseApi";
@@ -19,6 +19,8 @@ const Recruiter = () => {
   }
   const router = useRouter()
   const [opportunities, setOpportunities] = useState([]);
+  const [candidates, setCandidates] = useState([]);
+  const [ranking, setRanking] = useState([])
   const [opportunity, setOpportunity] = useState({});
   const loadOpportunities = useCallback(async () => {
     try {
@@ -28,9 +30,30 @@ const Recruiter = () => {
       console.log(err);
     }
   }, [setOpportunities]);
+
+  const loadCandidates = useCallback(async () => {
+    try {
+      const candidates = await fireBaseApi.post("/load-candidates");
+      setCandidates(candidates.data);
+      setRanking(candidates.data)
+    } catch (err) {
+      console.log(err);
+    }
+  }, [setCandidates]);
+
   useEffect(() => {
     loadOpportunities();
   }, [loadOpportunities]);
+
+  useEffect(() => {
+    loadCandidates()
+  }, [loadCandidates]);
+
+  useEffect(() => {
+    const newCandidates = candidates.filter(candidate => candidate.opportunityId === opportunity)
+    setRanking(newCandidates)
+  }, [opportunity])
+  console.log(opportunity)
 
   return (
     <Container maxWidth="xl">
@@ -138,23 +161,46 @@ const Recruiter = () => {
                 <IndicatorCard title="3" info='Contratações' height="6rem" />
               </Grid>
             </Grid>
+            <Typography variant="h4" fontWeight='bold'>
+              Ranking 🔥
+            </Typography>
             <TableContainer>
               <Table aria-label="simple table">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Nome</TableCell>
-                    <TableCell align="right">Pontuação</TableCell>
+                    <TableCell>
+                      <Typography variant="h6">
+                        Nome
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="h6">
+                        LinkedIn
+                      </Typography>
+                    </TableCell>
+                    <TableCell align="right">
+                      <Typography variant="h6">
+                        Pontuação
+                      </Typography>
+                    </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {/* {opportunities.map((row) => (
+                  {ranking.map((row) => (
                     <TableRow key={row.id}>
                       <TableCell component="th" scope="row">
-                        {row.title}
+                        {row.name}
                       </TableCell>
-                      <TableCell align="right">{row.title}</TableCell>
+                      <TableCell component="th" scope="row">
+                        {row.linkedIn}
+                      </TableCell>
+                      <TableCell align="right"
+                        sx={{ backgroundColor: (row.score < 18) ? '#ef9a9a' : (row.score > 29) ? '#a5d6a7' : '#e6ee9c' }}
+                      >
+                        {row.score}
+                      </TableCell>
                     </TableRow>
-                  ))} */}
+                  ))}
                 </TableBody>
               </Table>
             </TableContainer>
