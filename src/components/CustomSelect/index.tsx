@@ -51,7 +51,6 @@ const CustomSelect = ({ options, setAnswer, height }: CustomSelectProps) => {
                 borderRadius: 2,
                 boxShadow: '0 0 0 4px rgba(0,0,0,0.1)',
                 padding: isMobile ? '0' : '1.5rem',
-                height: height ? height : '6rem',
               }}
               value={option.weight}
               control={<Radio />}
