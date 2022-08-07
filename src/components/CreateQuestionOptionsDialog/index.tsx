@@ -49,7 +49,6 @@ const CreateQuestionOptionsDialog = ({
         })
         await Promise.all(questionOptions);
         handleClose();
-        toast.success('Questão criada com sucesso!');
       } catch (err) {
         console.log(err);
       }
