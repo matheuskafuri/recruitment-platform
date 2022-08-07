@@ -5,19 +5,12 @@ import {
   DialogActions,
   Button,
   TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  FormHelperText,
   Grid,
-  Box,
 } from '@mui/material'
+import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 import fireBaseApi from '../../services/fireBaseApi';
-import CreateQuestionDialog from '../CreateQuestionDialog';
-import CreateQuestionOptionsDialog from '../CreateQuestionOptionsDialog';
 
 
 interface CreateOpportunityDialogProps {
@@ -32,7 +25,7 @@ const CreateOpportunityDialog = ({
   const [opportunity, setOpportunity] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-
+  const router = useRouter()
   const createOpportunity = useCallback(async () => {
     if ((title.length > 3 && description.length > 3)) {
       try {
@@ -53,6 +46,7 @@ const CreateOpportunityDialog = ({
   const handleCreateOpportunity = () => {
     createOpportunity();
     onClose();
+    router.push('/create')
   }
 
   const handleClose = () => {

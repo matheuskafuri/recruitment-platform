@@ -51,14 +51,8 @@ const NavBar = () => {
   const handleNavigation = (title: string) => {
     const route = title.toLowerCase();
     switch (route) {
-      case 'vagas':
-        router.push('/vagas');
-        break;
-      case 'sobre':
-        router.push('/sobre');
-        break;
-      case 'conheça':
-        router.push('/conheca');
+      case 'recrutador':
+        router.push('/recruiter');
         break;
       default:
         break;
