@@ -10,6 +10,8 @@ import IndicatorCard from "../components/IndicatorCard";
 import { useRouter } from "next/router";
 import CreateOpportunityDialog from "../components/CreateOpportunityDialog";
 import LayoutProvider from "../components/Layout";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { Link } from "../components/Link/Link";
 
 const Recruiter = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -203,7 +205,11 @@ const Recruiter = () => {
                           {row.name}
                         </TableCell>
                         <TableCell component="th" scope="row">
-                          {row.linkedIn}
+                          <Link
+                            href={row.linkedIn}
+                          >
+                            <LinkedInIcon />
+                          </Link>
                         </TableCell>
                         <TableCell align="right"
                           sx={{ backgroundColor: (row.score < 18) ? '#ef9a9a' : (row.score > 32) ? '#a5d6a7' : '#e6ee9c' }}

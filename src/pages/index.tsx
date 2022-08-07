@@ -151,7 +151,7 @@ const Home: NextPage = () => {
               />
             </Grid>
             <Grid item xs={12} md={12} sx={{ padding: '1rem' }}>
-              <Button variant="contained" color="primary" size="large" href="/">
+              <Button variant="contained" color="primary" size="large" href="/vagas">
                 Conheça todas as nossas vagas
               </Button>
             </Grid>
@@ -167,7 +167,6 @@ const Home: NextPage = () => {
         </Box>
       </Container>
     </LayoutProvider >
-
   )
 }
 

@@ -6,15 +6,15 @@ import G4NavbarLight from '../../assets/images/navbar-light.svg'
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-const pages = ['Área do Recrutador'];
+const pages = ['Área do Recrutador', 'Vagas'];
 
 const UnderlineActivePageIndicator = ({ page }) => {
   const translatePage = (page) => {
     switch (page) {
       case 'Área do Recrutador':
         return 'recruiter';
-      case 'Sobre':
-        return 'sobre';
+      case 'Vagas':
+        return 'vagas';
       default:
         break;
     }
@@ -54,6 +54,9 @@ const NavBar = () => {
       case 'área do recrutador':
         router.push('/recruiter');
         break;
+      case 'vagas':
+        router.push('/vagas');
+        break
       default:
         break;
     }
