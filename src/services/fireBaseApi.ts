@@ -5,4 +5,4 @@ const fireBaseApi = axios.create({
   baseURL: "https://recruitment-platform.vercel.app/api/"
 });
 
-export default fireBaseApi;
+export default fireBaseApi

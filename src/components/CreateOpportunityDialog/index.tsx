@@ -34,6 +34,7 @@ const CreateOpportunityDialog = ({
           description,
         });
         setOpportunity(opportunity.data);
+        toast.success('Vaga criada com sucesso.')
       } catch (err) {
         console.log(err);
       }
