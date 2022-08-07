@@ -6,17 +6,15 @@ import G4NavbarLight from '../../assets/images/navbar-light.svg'
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-const pages = ['Vagas', 'Sobre', 'Conheça'];
+const pages = ['Recrutador'];
 
 const UnderlineActivePageIndicator = ({ page }) => {
   const translatePage = (page) => {
     switch (page) {
-      case 'Vagas':
-        return 'vagas';
+      case 'Recrutador':
+        return 'recruiter';
       case 'Sobre':
         return 'sobre';
-      case 'Conheça':
-        return 'conheca';
       default:
         break;
     }
